@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jagadeeswara Rao Palli - Smart Contract Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            padding: 100px 0 60px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
+            z-index: 0;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInDown 1s ease;
+        }
+
+        .title {
+            font-size: 1.5em;
+            color: #a78bfa;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .summary {
+            max-width: 800px;
+            margin: 30px auto;
+            font-size: 1.1em;
+            color: #cbd5e1;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .contact-item {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-item:hover {
+            color: #6366f1;
+        }
+
+        section {
+            padding: 60px 0;
+            animation: fadeIn 1s ease;
+        }
+
+        h2 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            text-align: center;
+            color: #f1f5f9;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #6366f1, #8b5cf6);
+            border-radius: 2px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .skill-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3);
+            border-color: rgba(99, 102, 241, 0.5);
+        }
+
+        .skill-card h3 {
+            color: #a78bfa;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .tag {
+            background: rgba(99, 102, 241, 0.2);
+            color: #c4b5fd;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+        }
+
+        .experience-timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .experience-item {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-left: 4px solid #6366f1;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .experience-item:hover {
+            transform: translateX(10px);
+        }
+
+        .experience-header {
+            margin-bottom: 15px;
+        }
+
+        .experience-title {
+            font-size: 1.5em;
+            color: #a78bfa;
+            margin-bottom: 5px;
+        }
+
+        .experience-company {
+            color: #94a3b8;
+            font-size: 1.1em;
+        }
+
+        .experience-date {
+            color: #64748b;
+            font-style: italic;
+        }
+
+        .experience-item ul {
+            margin-top: 15px;
+            padding-left: 20px;
+        }
+
+        .experience-item li {
+            margin-bottom: 10px;
+            color: #cbd5e1;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
+            border-color: rgba(139, 92, 246, 0.5);
+        }
+
+        .project-card h3 {
+            color: #8b5cf6;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .project-card ul {
+            margin-top: 15px;
+            padding-left: 20px;
+        }
+
+        .project-card li {
+            margin-bottom: 8px;
+            color: #cbd5e1;
+            font-size: 0.95em;
+        }
+
+        .education {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            padding: 40px;
+            margin-top: 40px;
+        }
+
+        .education-item {
+            margin-bottom: 30px;
+        }
+
+        .education-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .education-degree {
+            font-size: 1.3em;
+            color: #a78bfa;
+            margin-bottom: 5px;
+        }
+
+        .education-school {
+            color: #94a3b8;
+            font-size: 1.1em;
+        }
+
+        .education-details {
+            color: #64748b;
+            margin-top: 5px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: #64748b;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 60px;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .title {
+                font-size: 1.2em;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .projects-grid, .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-bg"></div>
+        <div class="container">
+            <div class="header-content">
+                <h1>Jagadeeswara Rao Palli</h1>
+                <p class="title">Smart Contract Engineer & Python Developer</p>
+                <p class="summary">
+                    Senior blockchain and Python developer with 5+ years of experience building production-grade smart contracts, 
+                    DeFi protocols, and enterprise backend systems. Specialized in security-first development with proven ability 
+                    to optimize gas costs by 30-40%. Expert in full-stack DApp development from Solidity/Rust contracts to React frontends.
+                </p>
+                <div class="contact-info">
+                    <a href="mailto:jagadeswara.pj77@gmail.com" class="contact-item">📧 jagadeswara.pj77@gmail.com</a>
+                    <a href="tel:+14062121816" class="contact-item">📱 +1 (406) 212-1816</a>
+                    <a href="https://www.linkedin.com/in/jagadeeswara-rao-palli-4bb650316" target="_blank" class="contact-item">💼 LinkedIn</a>
+                    <a href="https://github.com/jagadeshwarrao" target="_blank" class="contact-item">💻 GitHub</a>
+                    <span class="contact-item">📍 Jersey City, NJ</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="skills">
+        <div class="container">
+            <h2>Technical Proficiencies</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>🔗 Blockchain & Smart Contracts</h3>
+                    <p>Expert in Ethereum and Solana development with comprehensive security auditing experience.</p>
+                    <div class="skill-tags">
+                        <span class="tag">Solidity</span>
+                        <span class="tag">Rust</span>
+                        <span class="tag">Hardhat</span>
+                        <span class="tag">Foundry</span>
+                        <span class="tag">OpenZeppelin</span>
+                        <span class="tag">Anchor</span>
+                        <span class="tag">Ethers.js</span>
+                        <span class="tag">Web3.js</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h3>🔒 Security & Auditing</h3>
+                    <p>Comprehensive smart contract security analysis and vulnerability assessment.</p>
+                    <div class="skill-tags">
+                        <span class="tag">Slither</span>
+                        <span class="tag">Mythril</span>
+                        <span class="tag">Echidna</span>
+                        <span class="tag">Tenderly</span>
+                        <span class="tag">Gas Optimization</span>
+                        <span class="tag">Reentrancy Guards</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h3>💰 DeFi & Token Standards</h3>
+                    <p>Deep expertise in DeFi protocols, NFT standards, and tokenomics design.</p>
+                    <div class="skill-tags">
+                        <span class="tag">ERC-20</span>
+                        <span class="tag">ERC-721</span>
+                        <span class="tag">ERC-1155</span>
+                        <span class="tag">DeFi Protocols</span>
+                        <span class="tag">Chainlink Oracles</span>
+                        <span class="tag">DAO Architecture</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h3>🐍 Python Development</h3>
+                    <p>Production-grade backend services, ETL pipelines, and ML model integration.</p>
+                    <div class="skill-tags">
+                        <span class="tag">FastAPI</span>
+                        <span class="tag">Flask</span>
+                        <span class="tag">Django</span>
+                        <span class="tag">Pandas</span>
+                        <span class="tag">NumPy</span>
+                        <span class="tag">Scikit-learn</span>
+                        <span class="tag">PyTorch</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h3>☁️ Cloud & DevOps</h3>
+                    <p>Scalable infrastructure deployment and CI/CD pipeline automation.</p>
+                    <div class="skill-tags">
+                        <span class="tag">AWS</span>
+                        <span class="tag">Docker</span>
+                        <span class="tag">Kubernetes</span>
+                        <span class="tag">GitHub Actions</span>
+                        <span class="tag">Jenkins</span>
+                        <span class="tag">Apache Airflow</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h3>⚛️ Frontend Development</h3>
+                    <p>Modern DApp interfaces with seamless Web3 integration.</p>
+                    <div class="skill-tags">
+                        <span class="tag">React.js</span>
+                        <span class="tag">Next.js</span>
+                        <span class="tag">TypeScript</span>
+                        <span class="tag">Web3Modal</span>
+                        <span class="tag">WalletConnect</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>🎨 NFT Marketplace</h3>
+                    <ul>
+                        <li>Full-featured marketplace with ERC-721/1155 support and lazy minting</li>
+                        <li>On-chain royalties (EIP-2981) with auction/fixed-price mechanisms</li>
+                        <li>95%+ test coverage with 35% gas optimization on minting</li>
+                        <li>React.js frontend with IPFS integration via Pinata</li>
+                        <li>Reduced creator upfront costs by 80%</li>
+                    </ul>
+                </div>
+
+                <div class="project-card">
+                    <h3>🏦 DeFi Lending Protocol</h3>
+                    <ul>
+                        <li>Over-collateralized loans with dynamic interest rate models</li>
+                        <li>Multi-asset liquidity pools (ETH, DAI, USDC, WBTC)</li>
+                        <li>Automated liquidation engine with Chainlink oracle integration</li>
+                        <li>Flash loan functionality with configurable risk parameters</li>
+                        <li>30% gas optimization through efficient storage patterns</li>
+                    </ul>
+                </div>
+
+                <div class="project-card">
+                    <h3>🔐 Multisig Wallet</h3>
+                    <ul>
+                        <li>Enterprise-grade M-of-N approval threshold system</li>
+                        <li>Timelock mechanisms (24-72 hours) for high-value transactions</li>
+                        <li>Role-based access control with owner management</li>
+                        <li>Batch transaction support for operational efficiency</li>
+                        <li>User-friendly interface inspired by Gnosis Safe</li>
+                    </ul>
+                </div>
+
+                <div class="project-card">
+                    <h3>🤖 MEV & Copy-Trading Bots</h3>
+                    <ul>
+                        <li>Cross-chain bots for Ethereum and Solana</li>
+                        <li>Mempool monitoring with front-running/arbitrage simulation</li>
+                        <li>Telegram bot integration for real-time trade notifications</li>
+                        <li>Performance metrics and P&L calculations</li>
+                        <li>Latency optimization for competitive transaction submission</li>
+                    </ul>
+                </div>
+
+                <div class="project-card">
+                    <h3>🛡️ Smart Contract Security</h3>
+                    <ul>
+                        <li>Comprehensive security analysis with automated tools</li>
+                        <li>Identified vulnerabilities including reentrancy and access control issues</li>
+                        <li>Non-destructive proof-of-concept exploits on private testnets</li>
+                        <li>Post-mortem analysis on real-world exploits</li>
+                        <li>Security hardening with reentrancy guards and access modifiers</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <h2>Professional Experience</h2>
+            <div class="experience-timeline">
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="experience-title">Smart Contract Engineer</div>
+                        <div class="experience-company">PRN IT Corp, Jersey City, NJ</div>
+                        <div class="experience-date">Oct 2024 - Oct 2025</div>
+                    </div>
+                    <ul>
+                        <li>Developed, tested, and deployed smart contracts using Solidity and other EVM-compatible languages across Ethereum and Layer-2 networks</li>
+                        <li>Designed scalable, secure, and modular contract architectures for funding workflows, contribution mechanisms, and complex on-chain interaction systems</li>
+                        <li>Built and maintained comprehensive unit tests and integration test suites using frameworks like Hardhat, Foundry, and Truffle, ensuring high contract reliability</li>
+                        <li>Conducted rigorous smart-contract code reviews, focusing on security vulnerabilities, gas optimization, and performance improvements</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="experience-title">Python Developer</div>
+                        <div class="experience-company">JPMC, Plano, TX</div>
+                        <div class="experience-date">March 2023 - Oct 2024</div>
+                    </div>
+                    <ul>
+                        <li>Developed quantitative infrastructure for Risk Analytics Platform</li>
+                        <li>Built optimized data pipelines with DAG scheduling for large-scale financial data</li>
+                        <li>Collaborated with researchers to implement ML models for alpha generation</li>
+                        <li>Designed reporting tools for strategy risk evaluation</li>
+                        <li>Built RESTful APIs for seamless cloud integration with AWS</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="experience-title">Python Developer</div>
+                        <div class="experience-company">EPAM Systems</div>
+                        <div class="experience-date">Jan 2020 - March 2022</div>
+                    </div>
+                    <ul>
+                        <li>Developed ETL pipelines using Apache Airflow and Pandas</li>
+                        <li>Integrated applications with external systems using REST APIs and Kafka</li>
+                        <li>Built functional UIs with Flask and Django</li>
+                        <li>Applied NLP techniques for patient feedback analysis</li>
+                        <li>Developed distributed computing pipelines with Apache Spark/PySpark</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="container">
+            <h2>Education</h2>
+            <div class="education">
+                <div class="education-item">
+                    <div class="education-degree">Master of Science in Computer Science</div>
+                    <div class="education-school">Sacred Heart University, Fairfield, Connecticut, USA</div>
+                    <div class="education-details">GPA: 3.9 | 2023</div>
+                </div>
+                <div class="education-item">
+                    <div class="education-degree">Bachelor of Technology in Computer Science</div>
+                    <div class="education-school">Jawaharlal Nehru Technological University, Hyderabad, India</div>
+                    <div class="education-details">GPA: 3.7 | 2020</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Jagadeeswara Rao Palli. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
